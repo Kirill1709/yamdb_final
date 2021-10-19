@@ -1,7 +1,8 @@
+from django.conf import settings
+from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-
 from rest_framework import filters, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
@@ -12,8 +13,6 @@ from rest_framework.mixins import (CreateModelMixin, DestroyModelMixin,
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-from django.contrib.auth.tokens import default_token_generator
-from django.conf import settings
 
 from .filters import TitleFilter
 from .models import Category, Genre, Review, Title, User
@@ -21,7 +20,7 @@ from .permissions import IsAdminOrReadOnly, IsAutrhOrAdminOrModeratorOrReadOnly
 from .serializer import (CategorySerializer, CommentSerializer,
                          GenreSerializer, ReviewSerializer,
                          TitleReadSerializer, TitleWriteSerializer,
-                         UserAdminSerializer, TokenSerializer,
+                         TokenSerializer, UserAdminSerializer,
                          UserEmailSerializer, UserSerializer)
 
 
@@ -53,8 +52,7 @@ class TitleViewSet(viewsets.GenericViewSet, CreateAPIView, DestroyAPIView,
     filterset_class = TitleFilter
 
     def get_object(self):
-        obj = get_object_or_404(Title, pk=self.kwargs.get('pk'))
-        return obj
+        return get_object_or_404(Title, pk=self.kwargs.get('pk'))
 
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
