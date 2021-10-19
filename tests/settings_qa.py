@@ -1,4 +1,7 @@
 from api_yamdb.settings import *
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
     'default': {
