@@ -3,11 +3,11 @@ from datetime import timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = False
+DEBUG = os.environ('DEBUG', False)
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'jknkjsdfnsdjfns')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['*'])
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost')
 
 
 # Application definition
