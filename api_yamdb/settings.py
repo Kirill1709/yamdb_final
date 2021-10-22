@@ -5,9 +5,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = os.environ.get('DEBUG')
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'jasndkjasndkjasnd')
+SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
 
-ALLOWED_HOSTS = ['84.252.140.108', 'localhost']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
