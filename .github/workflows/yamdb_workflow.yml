@@ -60,7 +60,7 @@ jobs:
           # Выполняет pull образа с DockerHub
           sudo docker pull kirillgatsuk/yamdb
           sudo docker-compose stop
-            sudo docker-compose rm web
+            sudo docker-compose rm kirill_gatsuk_web_1
             # Создаст файл для переменных окружения
             touch .env 
             # Наполнит файл переменными окружения из секретов GitHub
@@ -70,7 +70,7 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            sudo docker-compose up -d
+            sudo docker-compose up -d --build
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
