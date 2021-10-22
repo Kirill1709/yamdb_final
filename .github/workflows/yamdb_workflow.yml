@@ -60,7 +60,7 @@ jobs:
           # Выполняет pull образа с DockerHub
           sudo docker pull kirillgatsuk/yamdb
           sudo docker-compose stop
-            sudo docker-compose rm kirill_gatsuk_web_1
+            sudo docker-compose rm web
             # Создаст файл для переменных окружения
             touch .env 
             # Наполнит файл переменными окружения из секретов GitHub
