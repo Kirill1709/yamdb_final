@@ -1,22 +1,14 @@
 import os
 from datetime import timedelta
 
-import environ
-
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+DEBUG = os.environ.get('DEBUG')
 
-DEBUG = env('DEBUG')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'jasndkjasndkjasnd')
 
-SECRET_KEY = env('SECRET_KEY')
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
