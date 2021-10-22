@@ -7,7 +7,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'jknkjsdfnsdjfns')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['*']).split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['*'])
 
 
 # Application definition
