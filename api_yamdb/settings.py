@@ -7,7 +7,7 @@ DEBUG = False
 
 SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
 
-ALLOWED_HOSTS = ['84.252.140.108', 'localhost']
+ALLOWED_HOSTS = ['84.252.140.108', 'localhost', 'web']
 
 
 # Application definition
