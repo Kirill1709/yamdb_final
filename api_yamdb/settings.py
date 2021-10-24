@@ -1,13 +1,27 @@
 import os
 from datetime import timedelta
 
+import environ
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = os.environ.get('DEBUG')
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+DEBUG = env('DEBUG', False)
+
+print(DEBUG)
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'jknkjsdfnsdjfns')
 
-ALLOWED_HOSTS = ['web', '84.252.140.108', 'localhost']
+print(SECRET_KEY)
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['*'])
+
+print(ALLOWED_HOSTS)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
